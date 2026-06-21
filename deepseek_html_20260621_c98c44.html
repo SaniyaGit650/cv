@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saniya Frah · Professional CV</title>
+  <!-- Font Awesome (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <!-- Google Fonts: Inter + fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+  <style>
+    /* ----- reset & base ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #f4f7fc;
+      color: #1e293b;
+      line-height: 1.5;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* main card – professional, soft shadow */
+    .cv-card {
+      max-width: 1100px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px -12px rgba(0, 20, 30, 0.15), 0 8px 24px -6px rgba(0,0,0,0.05);
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    /* inner padding */
+    .cv-inner {
+      padding: 2.5rem 2.8rem;
+    }
+
+    /* ----- header / profile row ----- */
+    .profile-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 2.2rem;
+      border-bottom: 2px solid #eef2f6;
+      padding-bottom: 2rem;
+    }
+
+    .name-title h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #0b1a2b;
+      margin-bottom: 0.25rem;
+    }
+
+    .name-title .badge {
+      display: inline-block;
+      background: #eef6ff;
+      color: #1f5f9e;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      letter-spacing: 0.3px;
+      margin-top: 0.2rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem 2rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact-links a {
+      color: #1e293b;
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.15s;
+      font-weight: 450;
+      background: #f8fafc;
+      padding: 0.4rem 1rem 0.4rem 0.8rem;
+      border-radius: 40px;
+      border: 1px solid #e9edf2;
+    }
+
+    .contact-links a i {
+      color: #2a6b9e;
+      font-size: 1rem;
+      width: 1.4rem;
+      text-align: center;
+    }
+
+    .contact-links a:hover {
+      background: #eef4fa;
+      border-color: #b9cee4;
+      color: #0f2b44;
+    }
+
+    /* ----- professional summary (highlight) ----- */
+    .summary-box {
+      background: #f8fafd;
+      padding: 1.6rem 2rem;
+      border-radius: 24px;
+      border-left: 6px solid #2a6b9e;
+      margin-bottom: 2.5rem;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+    }
+
+    .summary-box h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #2a6b9e;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .summary-box h2 i {
+      font-size: 1.2rem;
+    }
+
+    .summary-box p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #1e2f40;
+      font-weight: 400;
+      max-width: 900px;
+    }
+
+    /* grid: left (main) + right (sidebar) */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 2.2rem 2.8rem;
+    }
+
+    /* ----- left column (experience, education) ----- */
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      color: #0f2b44;
+      border-bottom: 2px solid #e2e9f0;
+      padding-bottom: 0.6rem;
+      margin: 1.8rem 0 1.2rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title i {
+      color: #2a6b9e;
+      font-size: 1.2rem;
+      width: 1.8rem;
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    /* experience item */
+    .exp-item {
+      margin-bottom: 1.8rem;
+    }
+
+    .exp-item h3 {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #0b1a2b;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .exp-item .org {
+      font-weight: 600;
+      color: #2a5a7a;
+      font-size: 1rem;
+      display: block;
+      margin-top: 0.1rem;
+    }
+
+    .exp-item .date {
+      font-weight: 450;
+      font-size: 0.85rem;
+      color: #5b6f84;
+      background: #f0f4f9;
+      padding: 0.15rem 0.8rem;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .exp-item p {
+      margin-top: 0.5rem;
+      color: #2c3e54;
+      font-size: 0.98rem;
+    }
+
+    .exp-item ul {
+      margin-top: 0.4rem;
+      padding-left: 1.2rem;
+      list-style: none;
+    }
+
+    .exp-item ul li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.3rem;
+      font-size: 0.95rem;
+      color: #1f344a;
+    }
+
+    .exp-item ul li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #2a6b9e;
+      font-weight: 700;
+    }
+
+    /* education cards */
+    .edu-item {
+      background: #fafcfe;
+      padding: 0.8rem 1.2rem;
+      border-radius: 18px;
+      border: 1px solid #eaf0f6;
+      margin-bottom: 0.9rem;
+    }
+
+    .edu-item strong {
+      font-weight: 700;
+      color: #0b1a2b;
+      display: block;
+      font-size: 1.05rem;
+    }
+
+    .edu-item .meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: #3e5770;
+      margin-top: 0.2rem;
+    }
+
+    .edu-item .marks {
+      background: #e4edf7;
+      padding: 0.1rem 0.9rem;
+      border-radius: 40px;
+      font-weight: 600;
+      color: #1f5f9e;
+      font-size: 0.8rem;
+      letter-spacing: 0.2px;
+    }
+
+    /* ----- right sidebar (skills, etc) ----- */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .side-block {
+      background: #f9fbfd;
+      border-radius: 24px;
+      padding: 1.4rem 1.6rem;
+      border: 1px solid #eef3f8;
+    }
+
+    .side-block h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0f2b44;
+      letter-spacing: 0.3px;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border-bottom: 1px solid #dee8f0;
+      padding-bottom: 0.5rem;
+    }
+
+    .side-block h3 i {
+      color: #2a6b9e;
+      width: 1.6rem;
+      font-size: 1.1rem;
+    }
+
+    .skill-tag {
+      display: inline-block;
+      background: white;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #1b3a57;
+      border: 1px solid #dae3ec;
+      margin: 0.2rem 0.2rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    }
+
+    .skill-tag i {
+      margin-right: 4px;
+      color: #2a6b9e;
+    }
+
+    .side-list {
+      list-style: none;
+      margin-top: 0.2rem;
+    }
+
+    .side-list li {
+      padding: 0.4rem 0;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border-bottom: 1px solid #edf2f7;
+    }
+
+    .side-list li:last-child {
+      border-bottom: 0;
+    }
+
+    .side-list li i {
+      color: #2a6b9e;
+      width: 1.4rem;
+      font-size: 0.9rem;
+    }
+
+    /* responsive */
+    @media (max-width: 850px) {
+      .cv-inner {
+        padding: 1.8rem;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+      }
+      .profile-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .contact-links {
+        width: 100%;
+        gap: 0.8rem;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .cv-inner {
+        padding: 1.2rem;
+      }
+      .name-title h1 {
+        font-size: 2rem;
+      }
+      .summary-box p {
+        font-size: 0.95rem;
+      }
+      .exp-item h3 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.2rem;
+      }
+      .exp-item .date {
+        white-space: normal;
+      }
+      .contact-links a {
+        font-size: 0.8rem;
+        padding: 0.2rem 0.8rem;
+      }
+    }
+
+    /* small extra */
+    .text-muted {
+      color: #59748f;
+      font-weight: 400;
+    }
+
+    .mt-1 {
+      margin-top: 0.4rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="cv-card">
+    <div class="cv-inner">
+
+      <!-- header -->
+      <div class="profile-row">
+        <div class="name-title">
+          <h1>Saniya Frah</h1>
+          <span class="badge"><i class="fas fa-graduation-cap" style="margin-right: 6px;"></i>MBA · Finance</span>
+          <div style="margin-top: 0.5rem; font-size: 0.95rem; color: #335577;">
+            <i class="fas fa-map-pin" style="color: #2a6b9e; width: 1.2rem;"></i> Gaya, India
+          </div>
+        </div>
+        <div class="contact-links">
+          <!-- updated email: saniyafrah87@gmail.com -->
+          <a href="mailto:saniyafrah87@gmail.com"><i class="fas fa-envelope"></i> saniyafrah87@gmail.com</a>
+          <a href="tel:+918709112424"><i class="fas fa-phone-alt"></i> +91 8709112424</a>
+          <a href="https://www.linkedin.com/in/saniya-frah-40054b228/" target="_blank"><i class="fab fa-linkedin-in"></i> linkedin.com/in/saniya-frah</a>
+        </div>
+      </div>
+
+      <!-- professional summary -->
+      <div class="summary-box">
+        <h2><i class="fas fa-bullseye"></i> Professional Summary</h2>
+        <p>Dedicated and results-driven professional with a unique blend of <strong>teaching experience</strong> and <strong>MBA in Finance</strong>. Over 5 years as a Primary Teacher at Saint Ann's School, developing strong communication, leadership, and organizational skills. Transitioned into finance with a solid grasp of financial analysis, strategic planning, and business acumen. Passionate about bridging education and finance, with a proven ability to manage teams, streamline processes, and deliver impactful results. Eager to contribute to a forward-thinking organization where analytical thinking and people skills drive success.</p>
+      </div>
+
+      <!-- main grid -->
+      <div class="grid-2">
+
+        <!-- left column -->
+        <div>
+
+          <!-- experience -->
+          <div class="section-title"><i class="fas fa-briefcase"></i> Experience</div>
+
+          <div class="exp-item">
+            <h3>
+              Primary Teacher
+              <span class="date">2016 – 2021</span>
+            </h3>
+            <span class="org"><i class="fas fa-school" style="margin-right: 6px; color: #2a6b9e;"></i> Saint Ann's School, Gaya</span>
+            <ul>
+              <li>Designed and delivered engaging lesson plans for 100+ students, improving class average by 15% in core subjects.</li>
+              <li>Collaborated with 8 faculty members to implement school-wide curriculum enhancements.</li>
+              <li>Mentored junior teachers and led parent-teacher meetings, strengthening community trust.</li>
+              <li>Introduced interactive learning tools that increased student participation by 30%.</li>
+            </ul>
+          </div>
+
+          <!-- education -->
+          <div class="section-title" style="margin-top: 2.2rem;"><i class="fas fa-graduation-cap"></i> Education</div>
+
+          <div class="edu-item">
+            <strong>MBA in Finance</strong>
+            <div class="meta">
+              <span>Magadh University · 2021 – 2023</span>
+              <span class="marks"><i class="fas fa-star" style="color: #f5b041;"></i> First Class</span>
+            </div>
+          </div>
+
+          <div class="edu-item">
+            <strong>B.Sc. in Zoology</strong>
+            <div class="meta">
+              <span>Magadh University · 2013 – 2016</span>
+              <span class="marks">Graduated</span>
+            </div>
+          </div>
+
+          <div class="edu-item">
+            <strong>Intermediate (12th)</strong>
+            <div class="meta">
+              <span>Nazareth Academy, Gaya</span>
+              <span class="marks">84%</span>
+            </div>
+          </div>
+
+          <div class="edu-item">
+            <strong>Matriculation (10th)</strong>
+            <div class="meta">
+              <span>Nazareth Academy, Gaya</span>
+              <span class="marks">84%</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- right sidebar -->
+        <div class="sidebar">
+
+          <div class="side-block">
+            <h3><i class="fas fa-code"></i> Core Skills</h3>
+            <div>
+              <span class="skill-tag"><i class="fas fa-chart-line"></i> Financial Analysis</span>
+              <span class="skill-tag"><i class="fas fa-people-arrows"></i> Team Leadership</span>
+              <span class="skill-tag"><i class="fas fa-book-open"></i> Curriculum Design</span>
+              <span class="skill-tag"><i class="fas fa-calculator"></i> Strategic Planning</span>
+              <span class="skill-tag"><i class="fas fa-comments"></i> Communication</span>
+              <span class="skill-tag"><i class="fas fa-project-diagram"></i> Project Management</span>
+              <span class="skill-tag"><i class="fas fa-microscope"></i> Research &amp; Analytics</span>
+              <span class="skill-tag"><i class="fas fa-chalkboard-teacher"></i> Public Speaking</span>
+            </div>
+          </div>
+
+          <div class="side-block">
+            <h3><i class="fas fa-tools"></i> Tools &amp; Tech</h3>
+            <div>
+              <span class="skill-tag"><i class="fab fa-microsoft"></i> MS Office Suite</span>
+              <span class="skill-tag"><i class="fas fa-file-excel"></i> Excel (Advanced)</span>
+              <span class="skill-tag"><i class="fas fa-database"></i> SQL (basic)</span>
+              <span class="skill-tag"><i class="fas fa-chart-pie"></i> Tableau</span>
+              <span class="skill-tag"><i class="fas fa-edit"></i> Google Workspace</span>
+            </div>
+          </div>
+
+          <div class="side-block">
+            <h3><i class="fas fa-award"></i> Certifications</h3>
+            <ul class="side-list">
+              <li><i class="fas fa-certificate"></i> Financial Modeling (CFI)</li>
+              <li><i class="fas fa-certificate"></i> Teaching Excellence (TET)</li>
+              <!-- updated certification -->
+              <li><i class="fas fa-certificate"></i> Leadership &amp; Management (Udemy)</li>
+            </ul>
+          </div>
+
+          <div class="side-block">
+            <h3><i class="fas fa-heart"></i> Interests</h3>
+            <ul class="side-list">
+              <!-- more interesting interests -->
+              <li><i class="fas fa-brain"></i> Behavioral Economics &amp; Decision Science</li>
+              <li><i class="fas fa-pencil-alt"></i> Creative Writing &amp; Journaling</li>
+              <li><i class="fas fa-tree"></i> Sustainable Finance &amp; ESG</li>
+              <li><i class="fas fa-chess-queen"></i> Chess &amp; Strategic Games</li>
+            </ul>
+          </div>
+
+        </div> <!-- sidebar -->
+      </div> <!-- grid -->
+
+      <!-- footer line (optional) -->
+      <div style="margin-top: 2.8rem; border-top: 1px solid #e2eaf2; padding-top: 1.5rem; text-align: center; font-size: 0.8rem; color: #6f8aa3;">
+        <i class="fas fa-print" style="margin-right: 6px;"></i> Saniya Frah · Professional CV · updated 2026
+      </div>
+
+    </div>
+  </div>
+
+  <!-- tiny js for interactivity (just a nice touch) -->
+  <script>
+    (function() {
+      // simple hover effect on summary (optional)
+      const summary = document.querySelector('.summary-box');
+      if (summary) {
+        summary.addEventListener('mouseenter', function() {
+          this.style.transition = 'background 0.2s';
+          this.style.background = '#f2f7fe';
+        });
+        summary.addEventListener('mouseleave', function() {
+          this.style.background = '#f8fafd';
+        });
+      }
+
+      // contact links subtle click feedback
+      const links = document.querySelectorAll('.contact-links a');
+      links.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          // just a tiny visual feedback
+          this.style.background = '#dce8f5';
+          setTimeout(() => { this.style.background = ''; }, 150);
+        });
+      });
+
+      console.log('CV ready · Saniya Frah · email updated to saniyafrah87@gmail.com');
+    })();
+  </script>
+</body>
+</html>
